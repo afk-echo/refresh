@@ -1,4 +1,4 @@
-# Refresh
+<h1 align='center'> Refresh </h1>
 An automatic webpage change checker for Android 12 and above.
 
 ## Features
