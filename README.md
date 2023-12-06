@@ -14,6 +14,7 @@ Features include:
 - previewing webpage contents before adding
 - support for using CSS selectors
 <br>
+
 ## :iphone: Screenshots
 
 <div align='center'>
