@@ -1,16 +1,19 @@
+<div align=center><img src='android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp'>
 <h1 align='center'> Refresh </h1>
 <p align='center'>An automatic webpage change checker for Android 12 and above.</p>
+<br>
+</div>
 
 ## :book: Features
 Features include:
-- Material You support
+- Material You color support
 - adding multiple URLs to check for changes
 - no ads
 - no premium tier
 - supports user-adjustable checking frequency
 - previewing webpage contents before adding
 - support for using CSS selectors
-
+<br>
 ## :iphone: Screenshots
 
 <div align='center'>
@@ -23,6 +26,8 @@ Features include:
 <img src='/screenshots/6.png' width=30% />
 </div>
 </div>
+
+<br>
 
 ## :arrow_down: Download
 Get the latest version of the app from the [releases](https://github.com/afk-echo/refresh/releases) page.
