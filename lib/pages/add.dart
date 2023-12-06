@@ -95,7 +95,7 @@ class _AddPageState extends State<AddPage> {
       padding: const EdgeInsets.all(16.0),
       child: ListView(shrinkWrap: false, children: [
         Padding(
-          padding: const EdgeInsets.only(top: 14),
+          padding: const EdgeInsets.only(top: 0),
           child: Text("Rule Parameters",
               style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,

@@ -56,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> {
       child: ListView(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 14),
+            padding: const EdgeInsets.only(top: 0),
             child: Text(
               "Appearance",
               style: TextStyle(
