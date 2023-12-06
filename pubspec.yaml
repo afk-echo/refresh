@@ -1,0 +1,31 @@
+name: refresh
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+
+dependencies:
+  awesome_notifications: ^0.8.2
+  diff_match_patch: ^0.4.1
+  dynamic_color: ^1.6.8
+  expandable: ^5.0.1
+  flutter:
+    sdk: flutter
+  flutter_background: ^1.2.0
+  flutter_local_notifications: ^16.2.0
+  flutter_widget_from_html: ^0.14.6
+  html: ^0.15.4
+  http: ^1.1.0
+  intl: ^0.18.1
+  shared_preferences: ^2.2.2
+  workmanager: ^0.5.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
