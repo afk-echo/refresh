@@ -5,7 +5,7 @@
 </div>
 
 ## :book: Features
-Note: This project is yet to reach completion. Multiple features are yet to be tested. It is not guaranteed that all features will work reliably.
+Note: This project is yet to reach a stable release. Multiple features are yet to be tested. It is not guaranteed that all features will work reliably.
 Features include:
 - Material You color support
 - adding multiple URLs to check
