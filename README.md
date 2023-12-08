@@ -34,7 +34,7 @@ Features include:
 ## :arrow_down: Download
 Get the latest version of the app from the [releases](https://github.com/afk-echo/refresh/releases) page.
 - Supported Android versions: 12.0 and above
-- For most devices, it is recommended to install **app-arm64-v8a-release.apk**.
+- Install **app-release.apk** from the releases page.
 
 ## To-Do
 - [ ] Test the background checking functionality
