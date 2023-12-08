@@ -22,13 +22,14 @@ class RuleInfoCard extends StatelessWidget {
     ),
     this.url = "<insert url variable with url: property>",
     this.selector = "<insert selector with selector: property>",
-    this.changes = "<insert changes with changes: property>",
+    this.changes = const ["<insert changes with changes: property>"],
     this.prevHtml = "<h3>insert prev html</h3>",
     this.lastChecked = "<insert lastChecked with lastChecked: property>",
   });
   final Icon headerIcon;
   final Icon changesIcon;
-  final String title, subtitle, url, selector, prevHtml, changes, lastChecked;
+  final String title, subtitle, url, selector, prevHtml, lastChecked;
+  final List<String> changes;
 
   @override
   Widget build(context) {
@@ -84,7 +85,7 @@ class RuleInfoCard extends StatelessWidget {
                         ruleName: title,
                         htmlChanges: changes.isEmpty
                             ? '<p>No changes since last check.</p>'
-                            : changes,
+                            : changes[0],
                         htmlFull: prevHtml,
                       ),
                     );
@@ -112,12 +113,6 @@ class RuleInfoCard extends StatelessWidget {
           ],
         ),
       ),
-      /*ListTile(
-        leading: headerIcon,
-        contentPadding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-        title: Text(title),
-        subtitle: Text(subtitle), */
-
       collapsed: const SizedBox(),
       expanded: CustomCard(
         padding: EdgeInsets.all(12),
@@ -135,9 +130,10 @@ class RuleInfoCard extends StatelessWidget {
             ),
             CustomCardItem(
               title: Text('Changes'),
-              subtitle: Text(
-                  changes == '' ? 'No changes detected.' : 'Changes detected.'),
-              icon: changes == ''
+              subtitle: Text(changes.isEmpty
+                  ? 'No changes detected.'
+                  : '${changes.length} change(s) detected!'),
+              icon: changes.isEmpty
                   ? Icon(
                       Icons.check_circle,
                       color: Colors.green,

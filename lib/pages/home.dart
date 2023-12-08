@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> _currWidgets = <Widget>[];
+  final List<Widget> _currWidgets = <Widget>[];
   static double smallFontSize = 14;
 
   void loadRules() async {
@@ -19,23 +19,28 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _currWidgets.clear();
     });
-    for (int i = 0; i < currRules.length; i = i + 6) {
+    int i = 0;
+    while (i < currRules.length) {
       String name = currRules[i];
       String url = currRules[i + 1];
       String selector = currRules[i + 2];
-      String changes = currRules[i + 3];
-      String prevHtml = currRules[i + 4];
-      String lastChecked = currRules[i + 5];
+      String prevHtml = currRules[i + 3];
+      String lastChecked = currRules[i + 4];
+      String nUncheckedChanges = currRules[i + 5];
+      List<String> changes =
+          currRules.sublist(i + 6, i + 6 + int.parse(nUncheckedChanges));
       Widget currRule = RuleInfoCard(
         title: name,
-        subtitle:
-            changes.isEmpty ? 'No changes detected.' : 'Changes detected!',
+        subtitle: (nUncheckedChanges == '0')
+            ? 'No changes detected.'
+            : 'Changes detected!',
         url: url,
         selector: selector,
         changes: changes,
         prevHtml: prevHtml,
         lastChecked: lastChecked,
       );
+      i = i + 6 + int.parse(nUncheckedChanges);
       setState(() {
         _currWidgets.insert(_currWidgets.length, currRule);
       });
@@ -82,23 +87,5 @@ class _HomePageState extends State<HomePage> {
         }
       },
     );
-    /* return ListView(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-          child: Text("Current Rules",
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary, fontSize: 12)),
-        ),
-        const RuleInfoCard(
-          title: "Rule 1",
-          changesIcon: Icon(Icons.update, color: Colors.yellowAccent),
-          subtitle: "Change detected!",
-        ),
-        const RuleInfoCard(
-          title: "Rule 2",
-        )
-      ],
-    ); */
   }
 }

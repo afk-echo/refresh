@@ -5,9 +5,10 @@
 </div>
 
 ## :book: Features
+Note: This project is yet to reach completion. Multiple features are yet to be tested. It is not guaranteed that all features will work reliably.
 Features include:
 - Material You color support
-- adding multiple URLs to check for changes
+- adding multiple URLs to check
 - no ads
 - no premium tier
 - supports user-adjustable checking frequency
@@ -34,3 +35,7 @@ Features include:
 Get the latest version of the app from the [releases](https://github.com/afk-echo/refresh/releases) page.
 - Supported Android versions: 12.0 and above
 - For most devices, it is recommended to install **app-arm64-v8a-release.apk**.
+
+## To-Do
+- [ ] Test the background checking functionality
+- [ ] Add a timestamp alongside a detected change

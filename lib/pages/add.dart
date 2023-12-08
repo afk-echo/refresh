@@ -64,9 +64,9 @@ class _AddPageState extends State<AddPage> {
           _name,
           _url,
           _selector,
-          '',
           firstHtml,
           DateFormat().format(DateTime.now()),
+          '0',
         ]
       ].expand((element) => element).toList();
       print(currRules);

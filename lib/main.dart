@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:logger/logger.dart';
 import 'app.dart';
+import 'background_task.dart';
 
 const _brand = Colors.deepPurple;
 
 @pragma('vm:entry-point')
 void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) {
-    print("Native called background task: $task");
+    try {
+      checkAndUpdate(task);
+    } catch (err) {
+      Logger().e(err.toString());
+      throw Exception(err);
+    }
     return Future.value(true);
   });
 }

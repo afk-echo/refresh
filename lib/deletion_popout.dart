@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workmanager/workmanager.dart';
 
 class DeletionPopout extends StatelessWidget {
   const DeletionPopout({
@@ -12,21 +13,28 @@ class DeletionPopout extends StatelessWidget {
     SharedPreferences pref = await SharedPreferences.getInstance();
     List<String> currRules = pref.getStringList('currentRules') ?? [];
     List<String> finalRules = [];
-    for (int i = 0; i < currRules.length; i = i + 6) {
+    int i = 0;
+    Workmanager().cancelByUniqueName("$ruleName-checker");
+    while (i < currRules.length) {
       String name = currRules[i];
       String url = currRules[i + 1];
       String selector = currRules[i + 2];
-      String changes = currRules[i + 3];
-      String prevHtml = currRules[i + 4];
-      String lastChecked = currRules[i + 5];
+      String prevHtml = currRules[i + 3];
+      String lastChecked = currRules[i + 4];
+      String nUncheckedChanges = currRules[i + 5];
       if (ruleName != name) {
-        finalRules.insert(finalRules.length, name);
-        finalRules.insert(finalRules.length, url);
-        finalRules.insert(finalRules.length, selector);
-        finalRules.insert(finalRules.length, changes);
-        finalRules.insert(finalRules.length, prevHtml);
-        finalRules.insert(finalRules.length, lastChecked);
+        finalRules = [
+          finalRules,
+          [name, url, selector, prevHtml, lastChecked, nUncheckedChanges]
+        ].expand((element) => element).toList().cast<String>();
+
+        print("$i, ${i + 6}");
+        finalRules = [
+          finalRules,
+          finalRules.sublist(i + 6, i + 6 + int.parse(nUncheckedChanges))
+        ].expand((element) => element).toList().cast<String>();
       }
+      i = i + 6 + int.parse(nUncheckedChanges);
     }
     pref.setStringList('currentRules', finalRules);
   }
@@ -35,20 +43,20 @@ class DeletionPopout extends StatelessWidget {
   Widget build(context) {
     return AlertDialog(
       title: Text("Delete '$ruleName'"),
-      content: Text("Are you sure you want to delete this rule?"),
+      content: const Text("Are you sure you want to delete this rule?"),
       actions: [
         TextButton(
           onPressed: () {
             Navigator.pop(context, 'Cancel');
           },
-          child: Text("Cancel"),
+          child: const Text("Cancel"),
         ),
         TextButton(
           onPressed: () {
             deleteRule(ruleName);
             Navigator.pop(context, 'Delete');
           },
-          child: Text("Delete"),
+          child: const Text("Delete"),
         )
       ],
     );
