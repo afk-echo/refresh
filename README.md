@@ -36,6 +36,6 @@ Get the latest version of the app from the [releases](https://github.com/afk-ech
 - Supported Android versions: 12.0 and above
 - Install **app-release.apk** from the releases page.
 
-## To-Do
+## :white_check_mark: To-Do
 - [ ] Test the background checking functionality
 - [ ] Add a timestamp alongside a detected change
