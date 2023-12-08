@@ -34,7 +34,7 @@ Features include:
 ## :arrow_down: Download
 Get the latest version of the app from the [releases](https://github.com/afk-echo/refresh/releases) page.
 - Supported Android versions: 12.0 and above
-- Install **app-release.apk** from the releases page.
+- Under assets in the releases page, download **app-release.apk** and install it on your device.
 
 ## :white_check_mark: To-Do
 - [ ] Test the background checking functionality
